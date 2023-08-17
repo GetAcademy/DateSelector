@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Kan du forklare mer hvordan return virker?
+         - avslutter en funksjon
+         - sender en verdi tilbake dit hvor hvert kall startet 
+    -->
+    <script>
+        let h1 = createTag('h1','Terje');
+        let p = createTag('p', 'Det var en dag.');
+        let div = createTag('div', h1+p)
+        document.body.innerHTML = div;
+
+        // let div = createTag('div', createTag('h1','Terje')+createTag('p', 'Det var en dag.'))
+        function createTag(tagName, innerHTML){
+            let html = `<${tagName}>${innerHTML}</${tagName}>`;
+            return html;            
+        }
+    </script>
+</body>
+</html>

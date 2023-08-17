@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+    <!--
+        Velge fra og til dato
+        Velge dato
+        Velge tall
+        Innebygd HTML
+
+        Kan du forklare mer hvordan return virker?
+         - avslutter en funksjon
+         - sender en verdi tilbake dit hvor hvert kall startet 
+    -->
+
     <div id="app"></div>
     <script>
-        document.getElementById('app').innerHTML = createNumberSelector();
+        document.getElementById('app').innerHTML = createDateSelector(17, 8, 2023);
 
-        function createNumberSelector(){
+        function createDateSelector(day, month, year) {
             return /*HTML*/`
                 <div class="container">
-                    <div id="Day" style="font-size: 300%;">1</div>
+                    ${createNumberSelector(day, 1, 31)}
+                    ${createNumberSelector(month, 1, 12)}
+                    ${createNumberSelector(year, 2000, 2023)}
+                </div>            
+            `;
+        }
+
+        function createNumberSelector(number, min, max) {
+            let numberUp = number + 1;
+            let numberDown = number - 1;
+            let disabledUp = numberUp > max ? 'disabled' : '';
+            let disabledDown = numberDown < min ? 'disabled' : '';
+            return /*HTML*/`
+                <div class="container">
+                    <div id="Day" style="font-size: 300%;">${number}</div>
                     <div class="buttons">
-                        <button onclick="selectDay(2)">▲</button>
-                        <button onclick="selectDay(0)" disabled>▼</button>
+                        <button onclick="selectDay(${numberUp})" ${disabledUp}>▲</button>
+                        <button onclick="selectDay(${numberDown})" ${disabledDown}>▼</button>
                     </div>
                 </div>            
             `;
         }
     </script>
 </body>
+
 </html>
