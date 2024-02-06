@@ -22,11 +22,17 @@
 
     <div id="app"></div>
     <script>
-        document.getElementById('app').innerHTML = createDateSelector(17, 8, 2023);
+        document.getElementById('app').innerHTML = /*HTML*/`
+            <label>Fra: </label>
+            ${createDateSelector(6, 2, 2024)}
+            <label>Til: </label>
+            ${createDateSelector(6, 2, 2024)}
+            <button class="search">Søk</button>
+        `;
 
         function createDateSelector(day, month, year) {
             return /*HTML*/`
-                <div class="container">
+                <div class="container" style="border: 1px solid lightgray;">
                     ${createNumberSelector(day, 1, 31)}
                     ${createNumberSelector(month, 1, 12)}
                     ${createNumberSelector(year, 2000, 2023)}

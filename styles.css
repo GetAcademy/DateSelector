@@ -1,6 +1,15 @@
+#app{
+    display: flex;
+    align-items: center;   
+    gap: 4px;  
+}
+label, button.search{
+    font-size: 300%;
+}
 .container {
     display: flex;
     align-items: center;
+    gap: 4px;    
 }
 
 .buttons {
